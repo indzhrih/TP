@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Статический SPA-прототип АИС «Система организации работы»">
+    <title>Система организации работы</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <div class="app">
+      <aside class="sidebar" aria-label="Навигация">
+        <a class="logo" href="#home">Система работы</a>
+        <nav class="menu" aria-label="Основное меню">
+          <a href="#home">Главная</a>
+          <a href="#tasks">Задачи</a>
+          <a href="#projects">Проекты</a>
+          <a href="#reports">Отчёты</a>
+          <a href="#analytics">Аналитика и рейтинг</a>
+          <span class="menu-divider" aria-hidden="true"></span>
+          <a href="#team">Начальник отдела</a>
+          <a href="#users">Администратор</a>
+          <a href="#flows">Схема переходов</a>
+        </nav>
+      </aside>
+      <div class="workspace">
+        <header class="topbar">
+          <span>АИС «Система организации работы»</span>
+          <div class="topbar-right">
+            <a href="#login">Войти</a>
+          </div>
+        </header>
+        <main class="content" id="main">
+          <section class="screen screen-default" id="home" aria-labelledby="home-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Рабочее пространство сотрудника</p>
+                <h1 id="home-title">Главная</h1>
+                <p class="lead">Задачи, отчёты и результаты работы в одном месте.</p>
+              </div>
+              <a class="button button-primary" href="#report-create">Предоставить отчёт</a>
+            </div>
+            <div class="metrics" aria-label="Показатели работы">
+              <article class="metric">
+                <span>Всего задач</span>
+                <strong>12</strong>
+                <small>Назначено сотруднику</small>
+              </article>
+              <article class="metric">
+                <span>В работе</span>
+                <strong>7</strong>
+                <small>Требуют выполнения</small>
+              </article>
+              <article class="metric">
+                <span>Выполнено</span>
+                <strong>5</strong>
+                <small>За текущий период</small>
+              </article>
+              <article class="metric">
+                <span>Баллы</span>
+                <strong>840</strong>
+                <small>Позиция в отделе: 3 из 12</small>
+              </article>
+            </div>
+            <div class="columns">
+              <section class="panel" aria-labelledby="home-tasks-title">
+                <div class="panel-heading">
+                  <h2 id="home-tasks-title">Ближайшие задачи</h2>
+                  <a class="text-link" href="#tasks">Все задачи</a>
+                </div>
+                <div class="record">
+                  <div>
+                    <a class="record-title" href="#task-detail">Подготовить техническое описание API</a>
+                    <p>Проект: Портал организации</p>
+                  </div>
+                  <div class="record-right">
+                    <span class="tag">В работе</span>
+                    <small>12 ноября</small>
+                  </div>
+                </div>
+                <div class="record">
+                  <div>
+                    <a class="record-title" href="#task-detail">Проверить отчётный модуль</a>
+                    <p>Проект: Аналитика</p>
+                  </div>
+                  <div class="record-right">
+                    <span class="tag">В работе</span>
+                    <small>15 ноября</small>
+                  </div>
+                </div>
+                <div class="record">
+                  <div>
+                    <a class="record-title" href="#task-detail">Обновить документацию</a>
+                    <p>Проект: Портал организации</p>
+                  </div>
+                  <div class="record-right">
+                    <span class="tag">Ожидает</span>
+                    <small>19 ноября</small>
+                  </div>
+                </div>
+              </section>
+              <aside class="panel" aria-labelledby="home-actions-title">
+                <div class="panel-heading">
+                  <h2 id="home-actions-title">Быстрый доступ</h2>
+                </div>
+                <div class="quick-links">
+                  <a href="#tasks">Найти задачу</a>
+                  <a href="#reports">История отчётов</a>
+                  <a href="#analytics">Мои баллы и рейтинг</a>
+                  <a href="#flows">Как связаны экраны</a>
+                </div>
+              </aside>
+            </div>
+          </section>
+          <section class="screen" id="login" aria-labelledby="login-title">
+            <div class="narrow">
+              <p class="overline">Учётная запись</p>
+              <h1 id="login-title">Вход в систему</h1>
+              <form class="panel form-panel" action="#home" method="get">
+                <div class="field">
+                  <label for="login-email">Электронная почта</label>
+                  <input
+                    id="login-email"
+                    type="email"
+                    autocomplete="username"
+                    placeholder="employee@example.org"
+                    required
+                  >
+                </div>
+                <div class="field">
+                  <label for="login-password">Пароль</label>
+                  <input id="login-password" type="password" autocomplete="current-password" required>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="submit">Войти</button>
+                  <a class="button button-secondary" href="#home">Отмена</a>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="tasks" aria-labelledby="tasks-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Сотрудник / Исполнение задач</p>
+                <h1 id="tasks-title">Задачи</h1>
+                <p class="lead">Назначенные работы, сроки и текущие состояния.</p>
+              </div>
+              <a class="button button-primary" href="#task-create">Добавить задачу</a>
+            </div>
+            <form class="toolbar" action="#tasks-search" method="get" role="search">
+              <label class="sr-only" for="task-query">Поиск задач</label>
+              <input id="task-query" type="search" name="q" placeholder="Поиск по названию или номеру">
+              <button class="button button-secondary" type="submit">Найти</button>
+              <a class="button button-secondary" href="#tasks-active">Только в работе</a>
+              <a class="button button-secondary" href="#tasks-sorted">Сортировать по сроку</a>
+            </form>
+            <section class="panel" aria-label="Список задач">
+              <div class="list-head">
+                <span>Задача и проект</span>
+                <span>Статус</span>
+                <span>Срок</span>
+                <span>Действия</span>
+              </div>
+              <article class="list-row">
+                <div>
+                  <a class="record-title" href="#task-detail">#104 — Подготовить техническое описание API</a>
+                  <p>Портал организации - И. Петров</p>
+                </div>
+                <span class="tag">В работе</span>
+                <time datetime="2026-11-12">12.11.2026</time>
+                <a class="text-link" href="#task-detail">Открыть</a>
+              </article>
+              <article class="list-row">
+                <div>
+                  <a class="record-title" href="#task-detail">#105 — Проверить отчётный модуль</a>
+                  <p>Аналитика - И. Петров</p>
+                </div>
+                <span class="tag">В работе</span>
+                <time datetime="2026-11-15">15.11.2026</time>
+                <a class="text-link" href="#task-detail">Открыть</a>
+              </article>
+              <article class="list-row">
+                <div>
+                  <a class="record-title" href="#task-detail">#106 — Обновить документацию</a>
+                  <p>Портал организации - И. Петров</p>
+                </div>
+                <span class="tag">Ожидает</span>
+                <time datetime="2026-11-19">19.11.2026</time>
+                <a class="text-link" href="#task-detail">Открыть</a>
+              </article>
+              <article class="list-row">
+                <div>
+                  <a class="record-title" href="#task-detail">#101 — Настроить окружение разработки</a>
+                  <p>Внутренние сервисы - И. Петров</p>
+                </div>
+                <span class="tag">Готово</span>
+                <time datetime="2026-11-03">03.11.2026</time>
+                <a class="text-link" href="#task-detail">Открыть</a>
+              </article>
+            </section>
+            <div class="pagination">
+              <span>Страница 1 из 2</span>
+              <a class="button button-secondary" href="#tasks-page-2">Следующая страница</a>
+            </div>
+          </section>
+          <section class="screen" id="tasks-search" aria-labelledby="tasks-search-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Поиск задач / Пример состояния</p>
+                <h1 id="tasks-search-title">Результаты поиска</h1>
+              </div>
+              <a class="button button-secondary" href="#tasks">К списку задач</a>
+            </div>
+            <section class="panel">
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#104 — Подготовить техническое описание API</a>
+                  <p>Портал организации</p>
+                </div>
+                <a class="text-link" href="#task-detail">Открыть</a>
+              </article>
+            </section>
+          </section>
+          <section class="screen" id="tasks-active" aria-labelledby="tasks-active-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Задачи / Фильтр</p>
+                <h1 id="tasks-active-title">В работе</h1>
+                <p class="lead">Пример списка после применения фильтра.</p>
+              </div>
+              <a class="button button-secondary" href="#tasks">Сбросить фильтр</a>
+            </div>
+            <section class="panel">
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#104 — Подготовить техническое описание API</a>
+                  <p>Срок: 12 ноября</p>
+                </div>
+                <span class="tag">В работе</span>
+              </article>
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#105 — Проверить отчётный модуль</a>
+                  <p>Срок: 15 ноября</p>
+                </div>
+                <span class="tag">В работе</span>
+              </article>
+            </section>
+          </section>
+          <section class="screen" id="tasks-sorted" aria-labelledby="tasks-sorted-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Задачи / Сортировка</p>
+                <h1 id="tasks-sorted-title">По сроку выполнения</h1>
+                <p class="lead">Пример упорядочивания от ближайшего срока к дальнему.</p>
+              </div>
+              <a class="button button-secondary" href="#tasks">Сбросить сортировку</a>
+            </div>
+            <section class="panel">
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#101 — Настроить окружение разработки</a>
+                  <p>03.11.2026</p>
+                </div>
+                <span class="tag">Готово</span>
+              </article>
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#104 — Подготовить техническое описание API</a>
+                  <p>12.11.2026</p>
+                </div>
+                <span class="tag">В работе</span>
+              </article>
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#105 — Проверить отчётный модуль</a>
+                  <p>15.11.2026</p>
+                </div>
+                <span class="tag">В работе</span>
+              </article>
+            </section>
+          </section>
+          <section class="screen" id="tasks-page-2" aria-labelledby="tasks-page2-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Задачи / Страница 2</p>
+                <h1 id="tasks-page2-title">Другие задачи</h1>
+                <p class="lead">Вторая страница списка.</p>
+              </div>
+              <a class="button button-secondary" href="#tasks">Предыдущая страница</a>
+            </div>
+            <section class="panel">
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#107 — Подготовить тестовые сценарии</a>
+                  <p>Проект: Портал организации</p>
+                </div>
+                <span class="tag">Ожидает</span>
+              </article>
+              <article class="record">
+                <div>
+                  <a class="record-title" href="#task-detail">#108 — Проверить права доступа</a>
+                  <p>Проект: Внутренние сервисы</p>
+                </div>
+                <span class="tag">В работе</span>
+              </article>
+            </section>
+            <div class="pagination">
+              <span>Страница 2 из 2</span>
+              <a class="button button-secondary" href="#tasks">Назад к первой</a>
+            </div>
+          </section>
+          <section class="screen" id="task-detail" aria-labelledby="task-detail-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline"><a href="#tasks">Задачи</a> / Карточка задачи #104</p>
+                <h1 id="task-detail-title">Техническое описание API</h1>
+                <p class="lead">Текущие параметры и история выполнения.</p>
+              </div>
+              <div class="heading-actions">
+                <a class="button button-secondary" href="#task-edit">Редактировать</a>
+                <a class="button button-primary" href="#report-create">Предоставить отчёт</a>
+              </div>
+            </div>
+            <section class="panel panel-pad" aria-labelledby="task-info-title">
+              <h2 id="task-info-title">Основные сведения</h2>
+              <dl class="details">
+                <div>
+                  <dt>Проект</dt>
+                  <dd>Портал организации</dd>
+                </div>
+                <div>
+                  <dt>Исполнитель</dt>
+                  <dd>Иван Петров</dd>
+                </div>
+                <div>
+                  <dt>Постановщик</dt>
+                  <dd>Анна Смирнова</dd>
+                </div>
+                <div>
+                  <dt>Состояние</dt>
+                  <dd>В работе</dd>
+                </div>
+                <div>
+                  <dt>Срок выполнения</dt>
+                  <dd>12.11.2026</dd>
+                </div>
+                <div>
+                  <dt>Плановый объём</dt>
+                  <dd>Описание 8 методов API</dd>
+                </div>
+                <div>
+                  <dt>Сложность</dt>
+                  <dd>Средняя</dd>
+                </div>
+                <div>
+                  <dt>Плановое время</dt>
+                  <dd>16 часов</dd>
+                </div>
+                <div>
+                  <dt>Фактическое время</dt>
+                  <dd>9 часов</dd>
+                </div>
+              </dl>
+            </section>
+            <section class="panel panel-pad separate" aria-labelledby="history-title">
+              <div class="panel-heading panel-heading-flat">
+                <h2 id="history-title">История отчётов</h2>
+                <a class="text-link" href="#report-create">Новый отчёт</a>
+              </div>
+              <article class="record">
+                <div>
+                  <strong>Отчёт от 04.11.2026</strong>
+                  <p>Описаны базовые методы и структура ответов. 5 часов.</p>
+                </div>
+                <a class="text-link" href="#report-edit">Изменить</a>
+              </article>
+              <article class="record">
+                <div>
+                  <strong>Отчёт от 06.11.2026</strong>
+                  <p>Добавлены примеры запросов. 4 часа.</p>
+                </div>
+                <a class="text-link" href="#report-edit">Изменить</a>
+              </article>
+            </section>
+            <p class="inline-action"><a class="text-link" href="#task-delete">Удалить задачу</a></p>
+          </section>
+          <section class="screen" id="task-create" aria-labelledby="task-create-title">
+            <div class="narrow-form">
+              <p class="overline">Начальник отдела / Задачи</p>
+              <h1 id="task-create-title">Новая задача</h1>
+              <form class="panel form-panel" action="#task-saved" method="get">
+                <div class="field">
+                  <label for="new-task-name">Название задачи *</label>
+                  <input
+                    id="new-task-name"
+                    name="title"
+                    required
+                    placeholder="Например, подготовить описание API"
+                  >
+                </div>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="new-task-project">Проект *</label>
+                    <select id="new-task-project" name="project" required>
+                      <option value>Выберите проект</option>
+                      <option>Портал организации</option>
+                      <option>Аналитика</option>
+                      <option>Внутренние сервисы</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="new-task-employee">Исполнитель *</label>
+                    <select id="new-task-employee" name="employee" required>
+                      <option value>Выберите сотрудника</option>
+                      <option>Иван Петров</option>
+                      <option>Мария Соколова</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="new-task-deadline">Срок *</label>
+                    <input id="new-task-deadline" name="deadline" type="date" required>
+                  </div>
+                  <div class="field">
+                    <label for="new-task-hours">Плановое время, ч *</label>
+                    <input id="new-task-hours" name="hours" type="number" min="1" step="1" required>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="new-task-volume">Плановый объём *</label>
+                  <textarea id="new-task-volume" name="volume" rows="3" required></textarea>
+                </div>
+                <div class="field">
+                  <label for="new-task-complexity">Сложность</label>
+                  <select id="new-task-complexity" name="complexity">
+                    <option>Низкая</option>
+                    <option selected>Средняя</option>
+                    <option>Высокая</option>
+                  </select>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="submit">Добавить задачу</button>
+                  <a class="button button-secondary" href="#tasks">Отмена</a>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="task-edit" aria-labelledby="task-edit-title">
+            <div class="narrow-form">
+              <p class="overline"><a href="#task-detail">Задача #104</a> / Редактирование</p>
+              <h1 id="task-edit-title">Изменить задачу</h1>
+              <form class="panel form-panel" action="#task-saved" method="get">
+                <div class="field">
+                  <label for="edit-task-name">Название *</label>
+                  <input id="edit-task-name" name="title" required value="Подготовить техническое описание API">
+                </div>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="edit-task-deadline">Срок *</label>
+                    <input id="edit-task-deadline" name="deadline" type="date" value="2026-11-12" required>
+                  </div>
+                  <div class="field">
+                    <label for="edit-task-hours">Плановое время, ч *</label>
+                    <input id="edit-task-hours" name="hours" type="number" min="1" value="16" required>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="edit-task-volume">Плановый объём *</label>
+                  <textarea id="edit-task-volume" name="volume" rows="3" required>Описание 8 методов API</textarea>
+                </div>
+                <div class="field">
+                  <label for="edit-task-status">Состояние</label>
+                  <select id="edit-task-status" name="status">
+                    <option selected>В работе</option>
+                    <option>Ожидает</option>
+                    <option>Готово</option>
+                  </select>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="submit">Сохранить изменения</button>
+                  <a class="button button-secondary" href="#task-detail">Отмена</a>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="task-delete" aria-labelledby="task-delete-title">
+            <div class="narrow">
+              <p class="overline">Задачи / Подтверждение действия</p>
+              <h1 id="task-delete-title">Удалить задачу?</h1>
+              <div class="panel form-panel">
+                <p>Задача <strong>#104 «Техническое описание API»</strong> будет удалена</p>
+                <form action="#task-removed" method="get" class="form-actions">
+                  <button class="button button-primary" type="submit">Подтвердить удаление</button>
+                  <a class="button button-secondary" href="#task-detail">Отмена</a>
+                </form>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="task-saved" aria-labelledby="task-saved-title">
+            <div class="narrow">
+              <p class="overline">Состояние формы</p>
+              <h1 id="task-saved-title">Задача подготовлена</h1>
+              <div class="panel form-panel">
+                <a class="button button-primary" href="#tasks">Вернуться к задачам</a>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="task-removed" aria-labelledby="task-removed-title">
+            <div class="narrow">
+              <p class="overline">Состояние формы</p>
+              <h1 id="task-removed-title">Удаление подтверждено</h1>
+              <div class="panel form-panel">
+                <a class="button button-primary" href="#tasks">К задачам</a>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="projects" aria-labelledby="projects-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Организация / Проекты</p>
+                <h1 id="projects-title">Проекты</h1>
+              </div>
+              <a class="button button-secondary" href="#tasks">Смотреть задачи</a>
+            </div>
+            <section class="panel" aria-label="Список проектов">
+              <article class="record">
+                <div>
+                  <strong>Портал организации</strong>
+                  <p>Отдел разработки и отдел сопровождения</p>
+                </div>
+                <span class="tag">Активный</span>
+              </article>
+              <article class="record">
+                <div>
+                  <strong>Аналитика</strong>
+                  <p>Отдел разработки, отдел анализа данных</p>
+                </div>
+                <span class="tag">Активный</span>
+              </article>
+              <article class="record">
+                <div>
+                  <strong>Внутренние сервисы</strong>
+                  <p>Отдел инфраструктуры и отдел разработки</p>
+                </div>
+                <span class="tag">Планирование</span>
+              </article>
+            </section>
+          </section>
+          <section class="screen" id="reports" aria-labelledby="reports-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Сотрудник / Отчётность</p>
+                <h1 id="reports-title">Мои отчёты</h1>
+              </div>
+              <a class="button button-primary" href="#report-create">Новый отчёт</a>
+            </div>
+            <section class="panel" aria-label="Список отчётов">
+              <article class="record">
+                <div>
+                  <strong>Отчёт #25 — 06.11.2026</strong>
+                  <p>Задача #104 - Примеры запросов - 4 часа</p>
+                </div>
+                <div class="record-right">
+                  <span class="tag">Обработан</span>
+                  <a class="text-link" href="#report-edit">Изменить</a>
+                </div>
+              </article>
+              <article class="record">
+                <div>
+                  <strong>Отчёт #21 — 04.11.2026</strong>
+                  <p>Задача #104 - Базовые методы - 5 часов</p>
+                </div>
+                <div class="record-right">
+                  <span class="tag">Обработан</span>
+                  <a class="text-link" href="#report-edit">Изменить</a>
+                </div>
+              </article>
+              <article class="record">
+                <div>
+                  <strong>Отчёт #19 — 03.11.2026</strong>
+                  <p>Задача #101 - Подготовлено окружение - 8 часов</p>
+                </div>
+                <div class="record-right">
+                  <span class="tag">Оценён</span>
+                  <a class="text-link" href="#report-edit">Изменить</a>
+                </div>
+              </article>
+            </section>
+            <div class="pagination">
+              <span>Страница 1 из 2</span>
+              <a class="button button-secondary" href="#reports-page-2">Следующая страница</a>
+            </div>
+            <p class="hint">Сотрудник может редактировать только собственные отчёты.</p>
+          </section>
+          <section class="screen" id="reports-page-2" aria-labelledby="reports-p2-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Отчёты / Страница 2</p>
+                <h1 id="reports-p2-title">Предыдущие отчёты</h1>
+                <p class="lead">Дополнительные записи отчётности.</p>
+              </div>
+              <a class="button button-secondary" href="#reports">Первая страница</a>
+            </div>
+            <section class="panel">
+              <article class="record">
+                <div>
+                  <strong>Отчёт #12 — 28.10.2026</strong>
+                  <p>Задача #97 - Тестирование формы авторизации - 6 часов</p>
+                </div>
+                <span class="tag">Оценён</span>
+              </article>
+            </section>
+          </section>
+          <section class="screen" id="report-create" aria-labelledby="report-create-title">
+            <div class="narrow-form">
+              <p class="overline"><a href="#reports">Отчёты</a> / Добавление</p>
+              <h1 id="report-create-title">Предоставить отчёт</h1>
+              <p class="lead">Укажите выполненный объём и фактически затраченное время.</p>
+              <form class="panel form-panel" action="#report-saved" method="get">
+                <div class="field">
+                  <label for="report-task">Задача *</label>
+                  <select id="report-task" name="task" required>
+                    <option value>Выберите задачу</option>
+                    <option selected value="104">#104 — Техническое описание API</option>
+                    <option value="105">#105 — Проверить отчётный модуль</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="report-result">Что выполнено *</label>
+                  <textarea
+                    id="report-result"
+                    name="result"
+                    rows="5"
+                    placeholder="Кратко опишите результат работы"
+                    required
+                  ></textarea>
+                </div>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="report-hours">Фактическое время, ч *</label>
+                    <input
+                      id="report-hours"
+                      type="number"
+                      name="hours"
+                      min="0.5"
+                      step="0.5"
+                      required
+                      placeholder="Например, 4.5"
+                    >
+                  </div>
+                  <div class="field">
+                    <label for="report-date">Дата отчёта *</label>
+                    <input id="report-date" type="date" name="date" required value="2026-11-06">
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="report-overtime">Внеурочная работа, ч</label>
+                  <input id="report-overtime" type="number" name="overtime" min="0" step="0.5" value="0">
+                </div>
+                <div class="mini-panel">
+                  <strong>Ранее отправлено по задаче #104</strong>
+                  <p>04.11 — 5 часов. 06.11 — 4 часа.</p>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="submit">Отправить отчёт</button>
+                  <a class="button button-secondary" href="#reports">Отмена</a>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="report-edit" aria-labelledby="report-edit-title">
+            <div class="narrow-form">
+              <p class="overline"><a href="#reports">Отчёты</a> / Редактирование #25</p>
+              <h1 id="report-edit-title">Изменить отчёт</h1>
+              <p class="lead">Редактирование доступно автору отчёта.</p>
+              <form class="panel form-panel" action="#report-saved" method="get">
+                <div class="field">
+                  <label for="report-edit-result">Что выполнено *</label>
+                  <textarea id="report-edit-result" name="result" rows="5" required>Добавлены примеры запросов и описаны коды ошибок.</textarea>
+                </div>
+                <div class="field">
+                  <label for="report-edit-hours">Фактическое время, ч *</label>
+                  <input
+                    id="report-edit-hours"
+                    type="number"
+                    name="hours"
+                    min="0.5"
+                    step="0.5"
+                    value="4"
+                    required
+                  >
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="button button-primary">Сохранить изменения</button>
+                  <a class="button button-secondary" href="#reports">Отмена</a>
+                </div>
+                <p class="hint"><a class="text-link" href="#report-delete">Удалить этот отчёт</a></p>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="report-delete" aria-labelledby="report-delete-title">
+            <div class="narrow">
+              <p class="overline">Отчёты / Подтверждение действия</p>
+              <h1 id="report-delete-title">Удалить отчёт?</h1>
+              <div class="panel form-panel">
+                <p>Отчёт #25 по задаче #104 будет удалён. Показан только прототип подтверждения.</p>
+                <form action="#report-removed" method="get" class="form-actions">
+                  <button class="button button-primary" type="submit">Подтвердить удаление</button>
+                  <a class="button button-secondary" href="#report-edit">Отмена</a>
+                </form>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="report-saved" aria-labelledby="report-saved-title">
+            <div class="narrow">
+              <p class="overline">Отчётность / Результат</p>
+              <h1 id="report-saved-title">Отчёт принят</h1>
+              <div class="panel form-panel">
+                <p>
+                  Так будет выглядеть подтверждение успешной отправки. В реальном приложении следующим шагом выполняется автоматический расчёт баллов.
+                </p>
+                <div class="form-actions">
+                  <a class="button button-primary" href="#reports">К моим отчётам</a>
+                  <a class="button button-secondary" href="#error">Пример ошибки расчёта</a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="report-removed" aria-labelledby="report-removed-title">
+            <div class="narrow">
+              <p class="overline">Отчёты / Результат</p>
+              <h1 id="report-removed-title">Удаление подтверждено</h1>
+              <div class="panel form-panel">
+                <a class="button button-primary" href="#reports">К отчётам</a>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="analytics" aria-labelledby="analytics-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Сотрудник и руководство / Показатели</p>
+                <h1 id="analytics-title">Аналитика и рейтинг</h1>
+                <p class="lead">Сводные сведения о работе за выбранный период.</p>
+              </div>
+            </div>
+            <form class="toolbar" action="#analytics" method="get">
+              <label for="period">Период</label>
+              <select id="period" name="period">
+                <option>Ноябрь 2026</option>
+                <option>Октябрь 2026</option>
+                <option>Текущий квартал</option>
+              </select>
+              <button class="button button-secondary" type="submit">Показать</button>
+            </form>
+            <div class="metrics metrics-three">
+              <article class="metric">
+                <span>Отработано часов</span>
+                <strong>96</strong>
+                <small>План: 104 часа</small>
+              </article>
+              <article class="metric">
+                <span>Завершено задач</span>
+                <strong>5</strong>
+                <small>За выбранный период</small>
+              </article>
+              <article class="metric">
+                <span>Начислено баллов</span>
+                <strong>840</strong>
+                <small>Расчёт по критериям АИС</small>
+              </article>
+            </div>
+            <div class="columns">
+              <section class="panel panel-pad">
+                <h2>План и факт</h2>
+                <div class="progress-row">
+                  <div>
+                    <span>Затраченное время</span>
+                    <strong>96 / 104 ч</strong>
+                  </div>
+                  <div class="track">
+                    <span style="width:92%"></span>
+                  </div>
+                </div>
+                <div class="progress-row">
+                  <div>
+                    <span>Завершённые задачи</span>
+                    <strong>5 / 12</strong>
+                  </div>
+                  <div class="track">
+                    <span style="width:42%"></span>
+                  </div>
+                </div>
+                <p class="hint">Показатели надбавок и сверхурочных часов рассчитываются системой на основании отчётов.</p>
+              </section>
+              <section class="panel panel-pad">
+                <h2>Место в рейтинге отдела</h2>
+                <div class="rank">
+                  <strong>3</strong>
+                  <span>из 12 сотрудников</span>
+                </div>
+                <div class="record compact">
+                  <span>Место 1 — сотрудник отдела</span>
+                  <strong>970</strong>
+                </div>
+                <div class="record compact">
+                  <span>Место 2 — сотрудник отдела</span>
+                  <strong>900</strong>
+                </div>
+                <div class="record compact">
+                  <strong>Место 3 — вы</strong>
+                  <strong>840</strong>
+                </div>
+              </section>
+            </div>
+          </section>
+          <section class="screen" id="team" aria-labelledby="team-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Начальник отдела / Управление</p>
+                <h1 id="team-title">Мой отдел</h1>
+                <p class="lead">Постановка задач и оценка отчётов сотрудников.</p>
+              </div>
+              <a class="button button-primary" href="#task-create">Назначить задачу</a>
+            </div>
+            <section class="panel" aria-labelledby="team-list-title">
+              <div class="panel-heading">
+                <h2 id="team-list-title">Сотрудники</h2>
+              </div>
+              <article class="record">
+                <div>
+                  <strong>Иван Петров</strong>
+                  <p>Разработчик - 840 баллов</p>
+                </div>
+                <a class="text-link" href="#task-create">Назначить работу</a>
+              </article>
+              <article class="record">
+                <div>
+                  <strong>Мария Соколова</strong>
+                  <p>Разработчик - 900 баллов</p>
+                </div>
+                <a class="text-link" href="#task-create">Назначить работу</a>
+              </article>
+            </section>
+            <section class="panel panel-pad separate" aria-labelledby="team-review-title">
+              <h2 id="team-review-title">Отчёты на проверку</h2>
+              <article class="record">
+                <div>
+                  <strong>И. Петров — задача #104</strong>
+                  <p>Отчёт от 06.11.2026 - 4 часа</p>
+                </div>
+                <a class="button button-secondary button-small" href="#evaluation">Оценить результат</a>
+              </article>
+            </section>
+          </section>
+          <section class="screen" id="evaluation" aria-labelledby="evaluation-title">
+            <div class="narrow-form">
+              <p class="overline"><a href="#team">Отдел</a> / Оценка результата</p>
+              <h1 id="evaluation-title">Оценить отчёт</h1>
+              <p class="lead">Отчёт #25. Исполнитель: Иван Петров. Задача #104.</p>
+              <form class="panel form-panel" action="#evaluation-saved" method="get">
+                <div class="field">
+                  <label for="evaluation-rating">Оценка *</label>
+                  <select id="evaluation-rating" name="rating" required>
+                    <option value>Выберите оценку</option>
+                    <option>5 — Отлично</option>
+                    <option>4 — Хорошо</option>
+                    <option>3 — Удовлетворительно</option>
+                    <option>2 — Требует доработки</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="evaluation-comment">Комментарий</label>
+                  <textarea id="evaluation-comment" rows="4" name="comment"></textarea>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="submit">Сохранить оценку</button>
+                  <a class="button button-secondary" href="#team">Отмена</a>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="evaluation-saved" aria-labelledby="evaluation-saved-title">
+            <div class="narrow">
+              <p class="overline">Отдел / Результат</p>
+              <h1 id="evaluation-saved-title">Оценка подготовлена</h1>
+              <div class="panel form-panel">
+                <a class="button button-primary" href="#team">Вернуться в отдел</a>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="users" aria-labelledby="users-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Администратор / Учётные записи</p>
+                <h1 id="users-title">Пользователи</h1>
+                <p class="lead">Регистрация сотрудников и управление организационными сведениями.</p>
+              </div>
+              <a class="button button-primary" href="#user-create">Добавить пользователя</a>
+            </div>
+            <section class="panel" aria-labelledby="user-list-title">
+              <div class="panel-heading">
+                <h2 id="user-list-title">Список пользователей</h2>
+              </div>
+              <div class="list-head user-list-head">
+                <span>Сотрудник</span>
+                <span>Роль</span>
+                <span>Отдел</span>
+                <span>Действия</span>
+              </div>
+              <article class="list-row">
+                <div>
+                  <strong>Иван Петров</strong>
+                  <p>i.petrov@example.org</p>
+                </div>
+                <span>Сотрудник</span>
+                <span>Разработка</span>
+                <a class="text-link" href="#user-edit">Изменить</a>
+              </article>
+              <article class="list-row">
+                <div>
+                  <strong>Анна Смирнова</strong>
+                  <p>a.smirnova@example.org</p>
+                </div>
+                <span>Начальник отдела</span>
+                <span>Разработка</span>
+                <a class="text-link" href="#user-edit">Изменить</a>
+              </article>
+              <article class="list-row">
+                <div>
+                  <strong>Мария Соколова</strong>
+                  <p>m.sokolova@example.org</p>
+                </div>
+                <span>Сотрудник</span>
+                <span>Разработка</span>
+                <a class="text-link" href="#user-edit">Изменить</a>
+              </article>
+            </section>
+            <div class="pagination">
+              <span>Страница 1 из 2</span>
+              <a class="button button-secondary" href="#users-page-2">Следующая страница</a>
+            </div>
+          </section>
+          <section class="screen" id="users-page-2" aria-labelledby="users-page-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Администратор / Страница 2</p>
+                <h1 id="users-page-title">Другие пользователи</h1>
+              </div>
+              <a class="button button-secondary" href="#users">Вернуться к списку</a>
+            </div>
+            <section class="panel">
+              <article class="record">
+                <div>
+                  <strong>Сергей Орлов</strong>
+                  <p>Руководитель организации - Управление</p>
+                </div>
+                <a class="text-link" href="#user-edit">Изменить</a>
+              </article>
+            </section>
+          </section>
+          <section class="screen" id="user-create" aria-labelledby="user-create-title">
+            <div class="narrow-form">
+              <p class="overline"><a href="#users">Администратор</a> / Регистрация</p>
+              <h1 id="user-create-title">Добавить пользователя</h1>
+              <form class="panel form-panel" action="#user-saved" method="get">
+                <div class="field">
+                  <label for="new-user-name">ФИО *</label>
+                  <input id="new-user-name" name="name" required>
+                </div>
+                <div class="field">
+                  <label for="new-user-email">Электронная почта *</label>
+                  <input id="new-user-email" type="email" name="email" required>
+                </div>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="new-user-role">Роль *</label>
+                    <select id="new-user-role" name="role" required>
+                      <option>Сотрудник</option>
+                      <option>Начальник отдела</option>
+                      <option>Администратор</option>
+                      <option>Руководитель организации</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="new-user-team">Отдел *</label>
+                    <select id="new-user-team" name="team" required>
+                      <option>Разработка</option>
+                      <option>Анализ данных</option>
+                      <option>Инфраструктура</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="new-user-position">Должность *</label>
+                  <input id="new-user-position" name="position" required placeholder="Например, разработчик">
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="submit">Добавить пользователя</button>
+                  <a class="button button-secondary" href="#users">Отмена</a>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="user-edit" aria-labelledby="user-edit-title">
+            <div class="narrow-form">
+              <p class="overline"><a href="#users">Администратор</a> / Редактирование</p>
+              <h1 id="user-edit-title">Изменить пользователя</h1>
+              <p class="lead">Пример редактирования учётной записи.</p>
+              <form class="panel form-panel" action="#user-saved" method="get">
+                <div class="field">
+                  <label for="edit-user-name">ФИО *</label>
+                  <input id="edit-user-name" name="name" required value="Иван Петров">
+                </div>
+                <div class="field">
+                  <label for="edit-user-email">Электронная почта *</label>
+                  <input id="edit-user-email" type="email" name="email" required value="i.petrov@example.org">
+                </div>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="edit-user-role">Роль</label>
+                    <select id="edit-user-role" name="role">
+                      <option selected>Сотрудник</option>
+                      <option>Начальник отдела</option>
+                      <option>Администратор</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="edit-user-dept">Отдел</label>
+                    <select id="edit-user-dept" name="department">
+                      <option selected>Разработка</option>
+                      <option>Анализ данных</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-primary" type="submit">Сохранить изменения</button>
+                  <a class="button button-secondary" href="#users">Отмена</a>
+                </div>
+                <p class="hint"><a class="text-link" href="#user-delete">Удалить учётную запись</a></p>
+              </form>
+            </div>
+          </section>
+          <section class="screen" id="user-delete" aria-labelledby="user-delete-title">
+            <div class="narrow">
+              <p class="overline">Администратор / Подтверждение</p>
+              <h1 id="user-delete-title">Удалить пользователя?</h1>
+              <div class="panel form-panel">
+                <p>Учётная запись <strong>Ивана Петрова</strong> будет удалена. Потребуется проверить связанные задачи, отчёты и права доступа.</p>
+                <form action="#user-removed" method="get" class="form-actions">
+                  <button class="button button-primary" type="submit">Подтвердить удаление</button>
+                  <a class="button button-secondary" href="#user-edit">Отмена</a>
+                </form>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="user-saved" aria-labelledby="user-saved-title">
+            <div class="narrow">
+              <p class="overline">Администратор / Результат</p>
+              <h1 id="user-saved-title">Данные пользователя подготовлены</h1>
+              <div class="panel form-panel">
+                <a class="button button-primary" href="#users">К пользователям</a>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="user-removed" aria-labelledby="user-removed-title">
+            <div class="narrow">
+              <p class="overline">Администратор / Результат</p>
+              <h1 id="user-removed-title">Удаление подтверждено</h1>
+              <div class="panel form-panel">
+                <a class="button button-primary" href="#users">К пользователям</a>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="error" aria-labelledby="error-title">
+            <div class="narrow">
+              <p class="overline">Состояние системы / Ошибка</p>
+              <h1 id="error-title">Не удалось рассчитать баллы</h1>
+              <div class="panel form-panel">
+                <div class="form-actions">
+                  <a class="button button-primary" href="#reports">Открыть отчёты</a>
+                  <a class="button button-secondary" href="#home">На главную</a>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="screen" id="flows" aria-labelledby="flows-title">
+            <div class="page-heading">
+              <div>
+                <p class="overline">Прототипирование / Навигация</p>
+                <h1 id="flows-title">Схема переходов</h1>
+                <p class="lead">Связи между формами отмечены ссылками. Каждая ссылка открывает соответствующий экран.</p>
+              </div>
+            </div>
+            <div class="flow-list">
+              <section class="panel panel-pad">
+                <h2>1. Вход и главная</h2>
+                <div class="flow-steps">
+                  <a href="#login">Авторизация</a>
+                  <span>→</span>
+                  <a href="#home">Главная</a>
+                  <span>→</span>
+                  <a href="#tasks">Список задач</a>
+                </div>
+                <p class="hint">После входа сотрудник видит рабочее пространство и свои задачи.</p>
+              </section>
+              <section class="panel panel-pad">
+                <h2>2. Просмотр и отчётность</h2>
+                <div class="flow-steps">
+                  <a href="#tasks">Поиск задач</a>
+                  <span>→</span>
+                  <a href="#task-detail">Карточка задачи</a>
+                  <span>→</span>
+                  <a href="#report-create">Новый отчёт</a>
+                  <span>→</span>
+                  <a href="#report-saved">Подтверждение</a>
+                </div>
+                <p class="hint">Если автоматическая обработка завершилась ошибкой: <a class="text-link" href="#error">открыть форму ошибки</a>.</p>
+              </section>
+              <section class="panel panel-pad">
+                <h2>3. Действия начальника отдела</h2>
+                <div class="flow-steps">
+                  <a href="#team">Отдел</a>
+                  <span>→</span>
+                  <a href="#task-create">Назначить задачу</a>
+                  <span>→</span>
+                  <a href="#task-saved">Подтверждение</a>
+                </div>
+                <div class="flow-steps">
+                  <a href="#team">Отдел</a>
+                  <span>→</span>
+                  <a href="#evaluation">Оценить отчёт</a>
+                  <span>→</span>
+                  <a href="#evaluation-saved">Подтверждение</a>
+                </div>
+              </section>
+              <section class="panel panel-pad">
+                <h2>4. Редактирование и удаление</h2>
+                <div class="flow-steps">
+                  <a href="#task-detail">Задача</a>
+                  <span>→</span>
+                  <a href="#task-edit">Редактировать</a>
+                  <span>→</span>
+                  <a href="#task-saved">Подтверждение</a>
+                </div>
+                <div class="flow-steps">
+                  <a href="#task-detail">Задача</a>
+                  <span>→</span>
+                  <a href="#task-delete">Удалить</a>
+                  <span>→</span>
+                  <a href="#task-removed">Подтверждение</a>
+                </div>
+                <div class="flow-steps">
+                  <a href="#reports">Отчёты</a>
+                  <span>→</span>
+                  <a href="#report-edit">Редактировать</a>
+                  <span>→</span>
+                  <a href="#report-delete">Удалить</a>
+                </div>
+              </section>
+              <section class="panel panel-pad">
+                <h2>5. Администрирование</h2>
+                <div class="flow-steps">
+                  <a href="#users">Пользователи</a>
+                  <span>→</span>
+                  <a href="#user-create">Добавить</a>
+                  <span>→</span>
+                  <a href="#user-saved">Подтверждение</a>
+                </div>
+                <div class="flow-steps">
+                  <a href="#users">Пользователи</a>
+                  <span>→</span>
+                  <a href="#user-edit">Редактировать</a>
+                  <span>→</span>
+                  <a href="#user-delete">Удалить</a>
+                </div>
+              </section>
+            </div>
+          </section>
+        </main>
+        <footer class="footer">
+          <a href="#flows">Связи между экранами</a>
+          <span>HTML и CSS</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
